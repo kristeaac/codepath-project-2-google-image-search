@@ -1,4 +1,4 @@
-package com.codepath.googleimagesearch.models;
+package com.codepath.googleimagesearch.models.google;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

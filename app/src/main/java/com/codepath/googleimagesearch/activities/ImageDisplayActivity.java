@@ -6,7 +6,7 @@ import android.widget.ImageView;
 
 import com.codepath.googleimagesearch.R;
 import com.codepath.googleimagesearch.constants.ExtraKeys;
-import com.codepath.googleimagesearch.models.Image;
+import com.codepath.googleimagesearch.models.google.Image;
 import com.squareup.picasso.Picasso;
 
 public class ImageDisplayActivity extends AppCompatActivity {

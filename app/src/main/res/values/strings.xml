@@ -11,6 +11,7 @@
     <string name="site_filter_hint">espn.com</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
+    <string name="search_options_title">Advanced Search Options</string>
 
     <string-array name="image_sizes">
         <item>small</item>

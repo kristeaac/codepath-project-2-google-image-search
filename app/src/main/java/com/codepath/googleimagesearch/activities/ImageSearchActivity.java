@@ -18,7 +18,7 @@ import com.codepath.googleimagesearch.adapters.ImageAdapter;
 import com.codepath.googleimagesearch.constants.ExtraKeys;
 import com.codepath.googleimagesearch.fragments.FiltersFragment;
 import com.codepath.googleimagesearch.listeners.EndlessScrollListener;
-import com.codepath.googleimagesearch.models.Image;
+import com.codepath.googleimagesearch.models.google.Image;
 import com.codepath.googleimagesearch.helpers.GoogleImageSearchHelper;
 
 import java.util.ArrayList;
