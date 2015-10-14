@@ -15,8 +15,8 @@ import android.widget.GridView;
 import com.codepath.googleimagesearch.R;
 import com.codepath.googleimagesearch.adapters.ImageAdapter;
 import com.codepath.googleimagesearch.constants.ExtraKeys;
+import com.codepath.googleimagesearch.listeners.EndlessScrollListener;
 import com.codepath.googleimagesearch.models.Image;
-import com.codepath.googleimagesearch.models.SearchResponse;
 import com.codepath.googleimagesearch.helpers.GoogleImageSearchHelper;
 
 import java.util.ArrayList;
@@ -26,6 +26,7 @@ public class ImageSearchActivity extends AppCompatActivity {
     private GridView gvResults;
     private List<Image> images;
     private ImageAdapter aImage;
+    private String query;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,23 @@ public class ImageSearchActivity extends AppCompatActivity {
         images = new ArrayList<>();
         aImage = new ImageAdapter(this, images);
         gvResults.setAdapter(aImage);
+        gvResults.setOnScrollListener(new EndlessScrollListener() {
+            @Override
+            public boolean onLoadMore(final int page, int totalItemsCount) {
+                GoogleImageSearchHelper.search(query, page, new GoogleImageSearchHelper.ResponseHandler<List<Image>>() {
+                    @Override
+                    public void onSuccess(List<Image> images) {
+                        aImage.addAll(images);
+                    }
+
+                    @Override
+                    public void onFailure(Throwable throwable) {
+                        Log.e("IMAGE_SEARCH", String.format("Failed to retrieve images, query=[%s]", query), throwable);
+                    }
+                });
+                return true;
+            }
+        });
     }
 
     private void setupViews() {
@@ -64,11 +82,13 @@ public class ImageSearchActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(final String query) {
-                GoogleImageSearchHelper.search(query, new GoogleImageSearchHelper.ResponseHandler<SearchResponse>() {
+                ImageSearchActivity.this.query = query;
+                GoogleImageSearchHelper.search(query, new GoogleImageSearchHelper.ResponseHandler<List<Image>>() {
                     @Override
-                    public void onSuccess(SearchResponse searchResponse) {
-                        images.clear();
-                        aImage.addAll(searchResponse.getResponseData().getResults());
+                    public void onSuccess(List<Image> images) {
+                        // TODO handle no results case
+                        ImageSearchActivity.this.images.clear();
+                        aImage.addAll(images);
                     }
 
                     @Override

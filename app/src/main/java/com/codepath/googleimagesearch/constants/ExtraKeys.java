@@ -4,4 +4,5 @@ public class ExtraKeys {
     public static final String IMAGE = "image";
 
     private ExtraKeys(){}
+
 }

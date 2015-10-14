@@ -1,14 +1,16 @@
 package com.codepath.googleimagesearch.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Page {
+    @JsonProperty("start")
     private String page;
     private int label;
 
-    public String getPage() {
-        return page;
+    public int getPage() {
+        return page == null ? 0 : Integer.parseInt(page);
     }
 
     public void setPage(String page) {
