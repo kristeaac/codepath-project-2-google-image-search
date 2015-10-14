@@ -2,4 +2,5 @@
     <string name="app_name">Google Image Search</string>
     <string name="image_content_description">Image Result</string>
     <string name="image_title">Image Title</string>
+    <string name="title_activity_image_display">Full Image</string>
 </resources>

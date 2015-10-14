@@ -1,5 +1,6 @@
 package com.codepath.googleimagesearch.activity;
 
+import android.content.Intent;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,10 +8,13 @@ import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.codepath.googleimagesearch.R;
 import com.codepath.googleimagesearch.adapters.ImageAdapter;
+import com.codepath.googleimagesearch.constants.ExtraKeys;
 import com.codepath.googleimagesearch.model.Image;
 import com.codepath.googleimagesearch.model.SearchResponse;
 import com.codepath.googleimagesearch.service.GoogleImageSearchHelper;
@@ -35,6 +39,14 @@ public class ImageSearchActivity extends AppCompatActivity {
 
     private void setupViews() {
         gvResults = (GridView) findViewById(R.id.gvResults);
+        gvResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ImageSearchActivity.this, ImageDisplayActivity.class);
+                intent.putExtra(ExtraKeys.IMAGE, aImage.getItem(position));
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

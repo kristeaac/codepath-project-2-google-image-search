@@ -3,8 +3,11 @@ package com.codepath.googleimagesearch.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Image {
+public class Image implements Serializable {
+
     @JsonProperty("imageId")
     private String id;
     private String url;
