@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codepath.googleimagesearch.R;
-import com.codepath.googleimagesearch.model.Image;
+import com.codepath.googleimagesearch.models.Image;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.codepath.googleimagesearch.activity;
+package com.codepath.googleimagesearch.activities;
 
 import android.content.Intent;
 import android.support.v4.view.MenuItemCompat;
@@ -15,9 +15,9 @@ import android.widget.GridView;
 import com.codepath.googleimagesearch.R;
 import com.codepath.googleimagesearch.adapters.ImageAdapter;
 import com.codepath.googleimagesearch.constants.ExtraKeys;
-import com.codepath.googleimagesearch.model.Image;
-import com.codepath.googleimagesearch.model.SearchResponse;
-import com.codepath.googleimagesearch.service.GoogleImageSearchHelper;
+import com.codepath.googleimagesearch.models.Image;
+import com.codepath.googleimagesearch.models.SearchResponse;
+import com.codepath.googleimagesearch.helpers.GoogleImageSearchHelper;
 
 import java.util.ArrayList;
 import java.util.List;

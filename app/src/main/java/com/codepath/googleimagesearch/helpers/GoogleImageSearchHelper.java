@@ -1,7 +1,7 @@
-package com.codepath.googleimagesearch.service;
+package com.codepath.googleimagesearch.helpers;
 
 
-import com.codepath.googleimagesearch.model.SearchResponse;
+import com.codepath.googleimagesearch.models.SearchResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
