@@ -2,13 +2,13 @@
 
 Google Image Search is an android app that allows a user to search for images on web using simple filters. The app utilizes [Google Image Search API](https://developers.google.com/image-search/). Please note that API has been officially deprecated as of May 26, 2011.
 
-Time spent: **X** hours spent in total
+Time spent: 2 hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-* [ ] User can **search for images** by specifying a query and launching a search. Search displays a grid of image results from the Google Image API.
+* [X] User can **search for images** by specifying a query and launching a search. Search displays a grid of image results from the Google Image API.
 * [ ] User can click on "settings" which allows selection of **advanced search options** to filter results
 * [ ] User can configure advanced search filters such as:
   * [ ] Size (small, medium, large, extra-large)
@@ -16,7 +16,7 @@ The following **required** functionality is completed:
   * [ ] Type (faces, photo, clip art, line art)
   * [ ] Site (espn.com)
 * [ ] Subsequent searches have any filters applied to the search results
-* [ ] User can tap on any image in results to see the image **full-screen**
+* [X] User can tap on any image in results to see the image **full-screen**
 * [ ] User can **scroll down to see more images**. The maximum number of images is 64 (limited by API).
 
 The following **optional** features are implemented:
