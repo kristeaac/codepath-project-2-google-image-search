@@ -1,7 +1,5 @@
 package com.codepath.googleimagesearch.model;
 
-import android.database.Cursor;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Collections;

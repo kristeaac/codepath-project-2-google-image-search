@@ -17,6 +17,7 @@ public class Image {
     @JsonProperty("tbHeight")
     private String thumbnailHeight;
     private String visibleUrl;
+    private String title;
 
     public String getId() {
         return id;
@@ -80,5 +81,13 @@ public class Image {
 
     public void setVisibleUrl(String visibleUrl) {
         this.visibleUrl = visibleUrl;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

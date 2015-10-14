@@ -17,7 +17,7 @@ public class GoogleImageSearchHelper {
     }
 
     public static void search(String query, final ResponseHandler<SearchResponse> responseHandler) {
-        String url = String.format("https://ajax.googleapis.com/ajax/services/search/images?q=%s&v=1.0", query);
+        String url = String.format("https://ajax.googleapis.com/ajax/services/search/images?q=%s&v=1.0&rsz=8", query);
 
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(url, null, new JsonHttpResponseHandler() {

@@ -7,17 +7,34 @@ import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.GridView;
 
 import com.codepath.googleimagesearch.R;
+import com.codepath.googleimagesearch.adapters.ImageAdapter;
+import com.codepath.googleimagesearch.model.Image;
 import com.codepath.googleimagesearch.model.SearchResponse;
 import com.codepath.googleimagesearch.service.GoogleImageSearchHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ImageSearchActivity extends AppCompatActivity {
+    private GridView gvResults;
+    private List<Image> images;
+    private ImageAdapter aImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_search);
+        setupViews();
+        images = new ArrayList<>();
+        aImage = new ImageAdapter(this, images);
+        gvResults.setAdapter(aImage);
+    }
+
+    private void setupViews() {
+        gvResults = (GridView) findViewById(R.id.gvResults);
     }
 
     @Override
@@ -38,7 +55,8 @@ public class ImageSearchActivity extends AppCompatActivity {
                 GoogleImageSearchHelper.search(query, new GoogleImageSearchHelper.ResponseHandler<SearchResponse>() {
                     @Override
                     public void onSuccess(SearchResponse searchResponse) {
-                        Log.d("DEBUG", "success!");
+                        images.clear();
+                        aImage.addAll(searchResponse.getResponseData().getResults());
                     }
 
                     @Override
