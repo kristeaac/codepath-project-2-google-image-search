@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TableLayout
+        android:id="@+id/tlFilterOptions"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0,1"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/image_size"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_gravity="left|center_vertical"/>
+
+            <Spinner
+                android:id="@+id/spnImageSizes"
+                android:layout_width="200dp"
+                android:layout_gravity="left|center_vertical"
+                android:text="Button 3" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/color_filter"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_gravity="left|center_vertical"/>
+
+            <Spinner
+                android:id="@+id/spnColorFilters"
+                android:layout_width="200dp"
+                android:layout_gravity="left|center_vertical"
+                android:text="Button 3" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/image_type"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_gravity="left|center_vertical"/>
+
+            <Spinner
+                android:id="@+id/spnImageTypes"
+                android:layout_width="200dp"
+                android:layout_gravity="left|center_vertical"
+                android:text="Button 3" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/site_filter"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_gravity="left|center_vertical"/>
+
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/etSiteFilter"
+                android:hint="@string/site_filter_hint"
+                android:layout_gravity="left|center_vertical"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tlFilterOptions"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:paddingBottom="20dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:id="@+id/btnSave" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:id="@+id/btnCancel" />
+    </LinearLayout>
+</RelativeLayout>

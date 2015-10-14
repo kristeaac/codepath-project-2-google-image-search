@@ -1,6 +1,7 @@
 package com.codepath.googleimagesearch.activities;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.GridView;
 import com.codepath.googleimagesearch.R;
 import com.codepath.googleimagesearch.adapters.ImageAdapter;
 import com.codepath.googleimagesearch.constants.ExtraKeys;
+import com.codepath.googleimagesearch.fragments.FiltersFragment;
 import com.codepath.googleimagesearch.listeners.EndlessScrollListener;
 import com.codepath.googleimagesearch.models.Image;
 import com.codepath.googleimagesearch.helpers.GoogleImageSearchHelper;
@@ -111,9 +113,15 @@ public class ImageSearchActivity extends AppCompatActivity {
         filtersItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                Log.d("DEBUG", "filters clicked!");
+                showFiltersFragment();
                 return false;
             }
         });
+    }
+
+    private void showFiltersFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        FiltersFragment filtersFragment = new FiltersFragment();
+        filtersFragment.show(fm, "fragment_filters");
     }
 }
