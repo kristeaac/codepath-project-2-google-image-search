@@ -1,4 +1,4 @@
-package com.codepath.googleimagesearch;
+package com.codepath.googleimagesearch.activity;
 
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,10 @@ import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.codepath.googleimagesearch.R;
+import com.codepath.googleimagesearch.model.SearchResponse;
+import com.codepath.googleimagesearch.service.GoogleImageSearchHelper;
 
 public class ImageSearchActivity extends AppCompatActivity {
 
@@ -30,7 +34,18 @@ public class ImageSearchActivity extends AppCompatActivity {
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
+            public boolean onQueryTextSubmit(final String query) {
+                GoogleImageSearchHelper.search(query, new GoogleImageSearchHelper.ResponseHandler<SearchResponse>() {
+                    @Override
+                    public void onSuccess(SearchResponse searchResponse) {
+                        Log.d("DEBUG", "success!");
+                    }
+
+                    @Override
+                    public void onFailure(Throwable throwable) {
+                        Log.e("IMAGE_SEARCH", String.format("Failed to retrieve images, query=[%s]", query), throwable);
+                    }
+                });
                 return true;
             }
 
