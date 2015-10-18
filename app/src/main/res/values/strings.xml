@@ -12,26 +12,6 @@
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
     <string name="search_options_title">Advanced Search Options</string>
+    <string name="file_type">File Type</string>
 
-    <string-array name="image_sizes">
-        <item>small</item>
-        <item>medium</item>
-        <item>large</item>
-        <item>extra-large</item>
-    </string-array>
-
-    <string-array name="color_filters">
-        <item>black</item>
-        <item>blue</item>
-        <item>brown</item>
-        <item>gray</item>
-        <item>green</item>
-    </string-array>
-
-    <string-array name="image_types">
-        <item>faces</item>
-        <item>photo</item>
-        <item>clip art</item>
-        <item>line art</item>
-    </string-array>
 </resources>
