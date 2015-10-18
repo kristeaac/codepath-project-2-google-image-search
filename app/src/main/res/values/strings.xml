@@ -8,7 +8,7 @@
     <string name="color_filter">Color Filter</string>
     <string name="image_type">Image Type</string>
     <string name="site_filter">Site Filter</string>
-    <string name="site_filter_hint">espn.com</string>
+    <string name="site_filter_hint">photobucket.com</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
     <string name="search_options_title">Advanced Search Options</string>

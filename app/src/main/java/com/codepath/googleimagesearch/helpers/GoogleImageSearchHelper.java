@@ -12,6 +12,7 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 
 import java.util.List;
@@ -46,6 +47,10 @@ public class GoogleImageSearchHelper {
 
         if (!ImageType.ANY.equals(ObjectUtils.defaultIfNull(filters.getImageType(), ImageType.ANY))) {
             url += "&imgtype=" + getImageTypeQueryParam(filters.getImageType());
+        }
+
+        if (StringUtils.isNotBlank(filters.getSiteFilter())) {
+            url += "&as_sitesearch=" + filters.getSiteFilter();
         }
 
         AsyncHttpClient client = new AsyncHttpClient();
