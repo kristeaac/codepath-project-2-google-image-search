@@ -14,9 +14,9 @@ public class FiltersHelper {
 
     public static Filters loadFilters(Context context) {
         SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
-        ImageSize imageSize = ImageSize.valueOf(settings.getString("imageSize", null));
-        ImageColor colorFilter = ImageColor.valueOf(settings.getString("colorFilter", null));
-        ImageType imageType = ImageType.valueOf(settings.getString("imageType", null));
+        ImageSize imageSize = ImageSize.valueOf(settings.getString("imageSize", ImageSize.ANY.name()));
+        ImageColor colorFilter = ImageColor.valueOf(settings.getString("colorFilter", ImageColor.ANY.name()));
+        ImageType imageType = ImageType.valueOf(settings.getString("imageType", ImageType.ANY.name()));
         String siteFilter = settings.getString("siteFilter", null);
         return new Filters(imageSize, colorFilter, imageType, siteFilter);
     }

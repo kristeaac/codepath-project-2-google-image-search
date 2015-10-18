@@ -1,7 +1,7 @@
 package com.codepath.googleimagesearch.models;
 
 public enum  ImageColor {
-    BLACK("black"), BLUE("blue"), BROWN("brown"), GRAY("gray"), GREEN("green");
+    ANY("any"), BLACK("black"), BLUE("blue"), BROWN("brown"), GRAY("gray"), GREEN("green");
 
     private String displayName;
 

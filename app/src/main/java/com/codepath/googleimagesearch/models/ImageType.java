@@ -2,7 +2,7 @@ package com.codepath.googleimagesearch.models;
 
 
 public enum  ImageType {
-    FACES("faces"), PHOTO("photo"), CLIP_ART("clip art"), LINE_ART("line art");
+    ANY("any"), FACES("faces"), PHOTO("photo"), CLIP_ART("clip art"), LINE_ART("line art");
 
     private String displayName;
 

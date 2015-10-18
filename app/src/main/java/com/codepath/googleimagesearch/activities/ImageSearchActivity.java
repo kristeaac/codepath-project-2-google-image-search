@@ -17,6 +17,7 @@ import com.codepath.googleimagesearch.R;
 import com.codepath.googleimagesearch.adapters.ImageAdapter;
 import com.codepath.googleimagesearch.constants.ExtraKeys;
 import com.codepath.googleimagesearch.fragments.FiltersFragment;
+import com.codepath.googleimagesearch.helpers.FiltersHelper;
 import com.codepath.googleimagesearch.listeners.EndlessScrollListener;
 import com.codepath.googleimagesearch.models.google.Image;
 import com.codepath.googleimagesearch.helpers.GoogleImageSearchHelper;
@@ -51,7 +52,7 @@ public class ImageSearchActivity extends AppCompatActivity {
                     public void onFailure(Throwable throwable) {
                         Log.e("IMAGE_SEARCH", String.format("Failed to retrieve images, query=[%s]", query), throwable);
                     }
-                });
+                }, FiltersHelper.loadFilters(getApplicationContext()));
                 return true;
             }
         });
@@ -97,7 +98,7 @@ public class ImageSearchActivity extends AppCompatActivity {
                     public void onFailure(Throwable throwable) {
                         Log.e("IMAGE_SEARCH", String.format("Failed to retrieve images, query=[%s]", query), throwable);
                     }
-                });
+                }, FiltersHelper.loadFilters(getApplicationContext()));
                 return true;
             }
 

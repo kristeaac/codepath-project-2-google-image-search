@@ -1,7 +1,7 @@
 package com.codepath.googleimagesearch.models;
 
 public enum  ImageSize {
-    SMALL("small"), MEDIUM("medium"), LARGE("large"), EXTRA_LARGE("extra-large");
+    ANY("any"), SMALL("small"), MEDIUM("medium"), LARGE("large"), EXTRA_LARGE("extra-large");
 
     private String displayName;
 
