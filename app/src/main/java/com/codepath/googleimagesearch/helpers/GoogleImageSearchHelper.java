@@ -4,6 +4,7 @@ package com.codepath.googleimagesearch.helpers;
 import com.codepath.googleimagesearch.models.Filters;
 import com.codepath.googleimagesearch.models.ImageColor;
 import com.codepath.googleimagesearch.models.ImageSize;
+import com.codepath.googleimagesearch.models.ImageType;
 import com.codepath.googleimagesearch.models.google.Image;
 import com.codepath.googleimagesearch.models.google.SearchResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -43,6 +44,10 @@ public class GoogleImageSearchHelper {
             url += "&imgsz=" + getImageSizeQueryParam(filters.getImageSize());
         }
 
+        if (!ImageType.ANY.equals(ObjectUtils.defaultIfNull(filters.getImageType(), ImageType.ANY))) {
+            url += "&imgtype=" + getImageTypeQueryParam(filters.getImageType());
+        }
+
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(url, null, new JsonHttpResponseHandler() {
             @Override
@@ -61,6 +66,22 @@ public class GoogleImageSearchHelper {
                 responseHandler.onFailure(throwable);
             }
         });
+    }
+
+    private static String getImageTypeQueryParam(ImageType imageType) {
+        switch (imageType) {
+            case FACES:
+                return "face";
+            case PHOTO:
+                return "photo";
+            case CLIP_ART:
+                return "clipart";
+            case LINE_ART:
+                return "lineart";
+            case ANY:
+            default:
+                return "";
+        }
     }
 
     private static String getImageColorQueryParam(ImageColor imageColor) {
