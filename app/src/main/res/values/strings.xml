@@ -13,5 +13,6 @@
     <string name="cancel">Cancel</string>
     <string name="search_options_title">Advanced Search Options</string>
     <string name="file_type">File Type</string>
+    <string name="search_hint">cute cats</string>
 
 </resources>

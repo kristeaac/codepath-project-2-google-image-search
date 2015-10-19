@@ -21,7 +21,8 @@ import com.codepath.googleimagesearch.helpers.FiltersHelper;
 import com.codepath.googleimagesearch.listeners.EndlessScrollListener;
 import com.codepath.googleimagesearch.models.google.Image;
 import com.codepath.googleimagesearch.helpers.GoogleImageSearchHelper;
-import com.etsy.android.grid.StaggeredGridView;
+
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,15 @@ public class ImageSearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_search);
         setupViews();
+
+        Intent intent = getIntent();
+        if (intent != null) {
+            query = (String) intent.getSerializableExtra(ExtraKeys.QUERY);
+            if (StringUtils.isNotBlank(query)) {
+                doSearch(query);
+            }
+        }
+
         images = new ArrayList<>();
         aImage = new ImageAdapter(this, images);
         gvResults.setAdapter(aImage);
@@ -87,19 +97,8 @@ public class ImageSearchActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(final String query) {
                 ImageSearchActivity.this.query = query;
-                GoogleImageSearchHelper.search(query, new GoogleImageSearchHelper.ResponseHandler<List<Image>>() {
-                    @Override
-                    public void onSuccess(List<Image> images) {
-                        // TODO handle no results case
-                        ImageSearchActivity.this.images.clear();
-                        aImage.addAll(images);
-                    }
-
-                    @Override
-                    public void onFailure(Throwable throwable) {
-                        Log.e("IMAGE_SEARCH", String.format("Failed to retrieve images, query=[%s]", query), throwable);
-                    }
-                }, FiltersHelper.loadFilters(getApplicationContext()));
+                ImageSearchActivity.this.images.clear();
+                doSearch(query);
                 return true;
             }
 
@@ -108,6 +107,21 @@ public class ImageSearchActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void doSearch(final String query) {
+        GoogleImageSearchHelper.search(query, new GoogleImageSearchHelper.ResponseHandler<List<Image>>() {
+            @Override
+            public void onSuccess(List<Image> images) {
+                // TODO handle no results case
+                aImage.addAll(images);
+            }
+
+            @Override
+            public void onFailure(Throwable throwable) {
+                Log.e("IMAGE_SEARCH", String.format("Failed to retrieve images, query=[%s]", query), throwable);
+            }
+        }, FiltersHelper.loadFilters(getApplicationContext()));
     }
 
     private void setupFiltersMenuItem(Menu menu) {
