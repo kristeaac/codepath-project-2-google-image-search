@@ -29,7 +29,7 @@ The following **optional** features are implemented:
 
 The following **bonus** features are implemented:
 
-* [X] Used the [StaggeredGridView](https://github.com/f-barth/AndroidStaggeredGrid) to display improve the grid of image results
+* [ ] Used the [StaggeredGridView](https://github.com/f-barth/AndroidStaggeredGrid) to display improve the grid of image results
 * [ ] User can [zoom or pan images](https://github.com/MikeOrtiz/TouchImageView) displayed in full-screen detail view
 
 The following **additional** features are implemented:
@@ -52,8 +52,6 @@ Describe any challenges encountered while building the app.
 
 - [Android Async HTTP](https://github.com/loopj/android-async-http) - Simple asynchronous HTTP requests with JSON parsing
 - [Picasso](http://square.github.io/picasso/) - Image loading and caching library for Android
-- [Jackson](https://github.com/FasterXML/jackson) - JSON parser
-- [AndroidStaggeredGrid](https://github.com/f-barth/AndroidStaggeredGrid) - An Android staggered grid view which supports multiple columns with rows of varying sizes
 
 ## License
 

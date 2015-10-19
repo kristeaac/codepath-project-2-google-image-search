@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.GridView;
 
 import com.codepath.googleimagesearch.R;
 import com.codepath.googleimagesearch.adapters.ImageAdapter;
@@ -20,13 +21,12 @@ import com.codepath.googleimagesearch.helpers.FiltersHelper;
 import com.codepath.googleimagesearch.listeners.EndlessScrollListener;
 import com.codepath.googleimagesearch.models.google.Image;
 import com.codepath.googleimagesearch.helpers.GoogleImageSearchHelper;
-import com.etsy.android.grid.StaggeredGridView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ImageSearchActivity extends AppCompatActivity {
-    private StaggeredGridView gvResults;
+    private GridView gvResults;
     private List<Image> images;
     private ImageAdapter aImage;
     private String query;
@@ -59,7 +59,7 @@ public class ImageSearchActivity extends AppCompatActivity {
     }
 
     private void setupViews() {
-        gvResults = (StaggeredGridView) findViewById(R.id.gvResults);
+        gvResults = (GridView) findViewById(R.id.gvResults);
         gvResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
