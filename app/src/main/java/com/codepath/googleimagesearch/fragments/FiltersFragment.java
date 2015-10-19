@@ -16,6 +16,7 @@ import com.codepath.googleimagesearch.R;
 import com.codepath.googleimagesearch.helpers.FiltersHelper;
 import com.codepath.googleimagesearch.models.Filters;
 import com.codepath.googleimagesearch.models.ImageColor;
+import com.codepath.googleimagesearch.models.ImageFileType;
 import com.codepath.googleimagesearch.models.ImageSize;
 import com.codepath.googleimagesearch.models.ImageType;
 
@@ -84,6 +85,23 @@ public class FiltersFragment extends DialogFragment {
             }
         });
 
+        List<String> imageFileTypes = new ArrayList<>(ImageFileType.values().length);
+        for (ImageFileType imageFileType : ImageFileType.values()) {
+            imageFileTypes.add(imageFileType.getDisplayName());
+        }
+
+        setupSpinner(view, R.id.spnFileType, imageFileTypes, filters.getImageFileType() == null ? 0 : filters.getImageFileType().ordinal(), new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                filters.setImageFileType(ImageFileType.fromDisplayName(parent.getItemAtPosition(position).toString()));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                filters.setImageFileType(null);
+            }
+        });
+
         Button btnSave = (Button) view.findViewById(R.id.btnSave);
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +119,6 @@ public class FiltersFragment extends DialogFragment {
                 dismiss();
             }
         });
-
 
         etSiteFilter = (EditText) view.findViewById(R.id.etSiteFilter);
         etSiteFilter.setText(filters.getSiteFilter());
