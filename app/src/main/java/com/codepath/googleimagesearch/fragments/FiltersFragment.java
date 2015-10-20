@@ -15,10 +15,8 @@ import android.widget.Spinner;
 import com.codepath.googleimagesearch.R;
 import com.codepath.googleimagesearch.helpers.FiltersHelper;
 import com.codepath.googleimagesearch.models.Filters;
-import com.codepath.googleimagesearch.models.ImageColor;
 import com.codepath.googleimagesearch.models.ImageFileType;
 import com.codepath.googleimagesearch.models.ImageSize;
-import com.codepath.googleimagesearch.models.ImageType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,40 +46,6 @@ public class FiltersFragment extends DialogFragment {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 filters.setImageSize(null);
-            }
-        });
-
-        List<String> imageColors = new ArrayList<>(ImageColor.values().length);
-        for (ImageColor imageColor : ImageColor.values()) {
-            imageColors.add(imageColor.getDisplayName());
-        }
-
-        setupSpinner(view, R.id.spnColorFilters, imageColors, filters.getImageColor() == null ? 0 : filters.getImageColor().ordinal(), new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                filters.setImageColor(ImageColor.fromDisplayName(parent.getItemAtPosition(position).toString()));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                filters.setImageColor(null);
-            }
-        });
-
-        List<String> imageTypes = new ArrayList<>(ImageType.values().length);
-        for (ImageType imageType : ImageType.values()) {
-            imageTypes.add(imageType.getDisplayName());
-        }
-
-        setupSpinner(view, R.id.spnImageTypes, imageTypes, filters.getImageType() == null ? 0 : filters.getImageType().ordinal(), new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                filters.setImageType(ImageType.fromDisplayName(parent.getItemAtPosition(position).toString()));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                filters.setImageType(null);
             }
         });
 

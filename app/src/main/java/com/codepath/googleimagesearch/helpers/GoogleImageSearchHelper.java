@@ -2,10 +2,8 @@ package com.codepath.googleimagesearch.helpers;
 
 
 import com.codepath.googleimagesearch.models.Filters;
-import com.codepath.googleimagesearch.models.ImageColor;
 import com.codepath.googleimagesearch.models.ImageFileType;
 import com.codepath.googleimagesearch.models.ImageSize;
-import com.codepath.googleimagesearch.models.ImageType;
 import com.codepath.googleimagesearch.models.google.Image;
 import com.codepath.googleimagesearch.models.google.SearchResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -38,16 +36,8 @@ public class GoogleImageSearchHelper {
     private static void searchWithOffset(String query, final int offset, final ResponseHandler<List<Image>> responseHandler, Filters filters) {
         String url = String.format("https://ajax.googleapis.com/ajax/services/search/images?q=%s&v=1.0&rsz=8&start=%s", query, offset);
 
-        if (!ImageColor.ANY.equals(ObjectUtils.defaultIfNull(filters.getImageColor(), ImageColor.ANY))) {
-            url += "&imgcolor=" + getImageColorQueryParam(filters.getImageColor());
-        }
-
         if (!ImageSize.ANY.equals(ObjectUtils.defaultIfNull(filters.getImageSize(), ImageSize.ANY))) {
             url += "&imgsz=" + getImageSizeQueryParam(filters.getImageSize());
-        }
-
-        if (!ImageType.ANY.equals(ObjectUtils.defaultIfNull(filters.getImageType(), ImageType.ANY))) {
-            url += "&imgtype=" + getImageTypeQueryParam(filters.getImageType());
         }
 
         if (StringUtils.isNotBlank(filters.getSiteFilter())) {
@@ -91,30 +81,6 @@ public class GoogleImageSearchHelper {
             case ANY:
             default:
                 return "";
-        }
-    }
-
-    private static String getImageTypeQueryParam(ImageType imageType) {
-        switch (imageType) {
-            case FACES:
-                return "face";
-            case PHOTO:
-                return "photo";
-            case CLIP_ART:
-                return "clipart";
-            case LINE_ART:
-                return "lineart";
-            case ANY:
-            default:
-                return "";
-        }
-    }
-
-    private static String getImageColorQueryParam(ImageColor imageColor) {
-        if (imageColor == null || imageColor.equals(ImageColor.ANY)) {
-            return "";
-        } else {
-            return imageColor.name().toLowerCase();
         }
     }
 
