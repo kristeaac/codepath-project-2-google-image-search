@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.codepath.googleimagesearch.R;
 import com.codepath.googleimagesearch.helpers.FiltersHelper;
@@ -24,6 +25,7 @@ import java.util.List;
 public class FiltersFragment extends DialogFragment {
     private Filters filters;
     private EditText etSiteFilter;
+    private List<Spinner> spinners;
 
     @Nullable
     @Override
@@ -31,6 +33,15 @@ public class FiltersFragment extends DialogFragment {
         View view = inflater.inflate(R.layout.fragment_filters, container);
         getDialog().setTitle(R.string.search_options_title);
         filters = FiltersHelper.loadFilters(getContext());
+        spinners = new ArrayList<>();
+
+        TextView tvReset = (TextView) view.findViewById(R.id.tvReset);
+        tvReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetFilters();
+            }
+        });
 
         List<String> imageSizes = new ArrayList<>(ImageSize.values().length);
         for (ImageSize imageSize : ImageSize.values()) {
@@ -90,8 +101,16 @@ public class FiltersFragment extends DialogFragment {
         return view;
     }
 
+    private void resetFilters() {
+        etSiteFilter.setText("");
+        for (Spinner spinner : spinners) {
+            spinner.setSelection(0);
+        }
+    }
+
     private void setupSpinner(View view, int spinnerResourceId, List<String> resources, int selectedPosition, AdapterView.OnItemSelectedListener onItemSelectedListener) {
         Spinner spinner = (Spinner) view.findViewById(spinnerResourceId);
+        spinners.add(spinner);
         String[] resourceArray = new String[resources.size()];
         for (int i = 0; i < resources.size(); i++) {
             resourceArray[i] = resources.get(i);

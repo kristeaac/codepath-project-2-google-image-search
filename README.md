@@ -35,6 +35,7 @@ The following **bonus** features are implemented:
 The following **additional** features are implemented:
 
 * [X] User can filter results by file type
+* [X] User can reset filters
 
 ## Video Walkthrough
 

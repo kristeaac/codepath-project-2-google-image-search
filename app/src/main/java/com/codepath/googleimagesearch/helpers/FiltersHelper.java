@@ -27,4 +27,5 @@ public class FiltersHelper {
         editor.putString("imageFileType", filters.getImageFileType().name());
         editor.commit();
     }
+
 }
