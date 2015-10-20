@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context=".ImageSearchActivity">
+    android:layout_height="match_parent" tools:context=".ImageSearchActivity"
+    android:padding="10dp"
+    android:background="#f7f7f7">
 
     <GridView
         android:layout_width="wrap_content"
@@ -10,6 +12,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:numColumns="3" />
+        android:numColumns="3"
+        android:horizontalSpacing="20dp"
+        android:verticalSpacing="20dp"/>
 
 </RelativeLayout>
