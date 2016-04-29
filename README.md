@@ -4,6 +4,9 @@ Google Image Search is an android app that allows a user to search for images on
 
 Time spent: 4 hours spent in total
 
+## Related Work
+This project is the third in a series for [CodePath's Android Mobile Bootcamp for Engineers](http://codepath.com/androidbootcamp)
+
 * **Pre-work - [SimpleTodo](https://github.com/kristeaac/codepath-project-0-todo)** - allows building a todo list with basic todo items management functionality including adding new items, editing and deleting an existing item
 * **Project 1 - [Instagram Photo Viewer](https://github.com/kristeaac/codepath-project-1-instagram-photo-viewer)** - read-only media viewer for Instagram which allows a user to check out popular photos and videos 
 * **Project 2 - Google Image Search** - a Google Image Search app which allows a user to select search filters and paginate results infinitely
