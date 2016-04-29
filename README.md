@@ -4,6 +4,13 @@ Google Image Search is an android app that allows a user to search for images on
 
 Time spent: 4 hours spent in total
 
+* **Pre-work - [SimpleTodo](https://github.com/kristeaac/codepath-project-0-todo)** - allows building a todo list with basic todo items management functionality including adding new items, editing and deleting an existing item
+* **Project 1 - [Instagram Photo Viewer](https://github.com/kristeaac/codepath-project-1-instagram-photo-viewer)** - read-only media viewer for Instagram which allows a user to check out popular photos and videos 
+* **Project 2 - Google Image Search** - a Google Image Search app which allows a user to select search filters and paginate results infinitely
+* **Project 3 - [Simple Tweets](https://github.com/kristeaac/codepath-project-3-twitter-client)** - a simple Twitter client that supports viewing a Twitter timeline and composing a new tweet
+* **Project 4 - [Extended Simple Tweets](https://github.com/kristeaac/codepath-project-4-extended-twitter-client)** - an extension of the previous Twitter client to use a tabbed interface and fragments
+
+
 ## User Stories
 
 The following **required** functionality is completed:
